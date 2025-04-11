@@ -1,0 +1,212 @@
+/* --- Global Styles & Variables --- */
+:root {
+    /* Bubble Tea Palette */
+    --bg-color: #F5EBE0; /* Light Creamy Beige (Milk foam/background) */
+    --card-bg: #EADBC8; /* Slightly darker beige (Milk tea base) */
+    --text-color: #6B4F4F; /* Dark Brown (Strong tea / Tapioca) */
+    --heading-color: #8B4513; /* Saddle Brown (Classic tea color) */
+    --accent-color: #DAC0A3; /* Lighter Tan/Caramel accent */
+    --pearl-color: #3A3A3A; /* Dark grey/off-black for pearls */
+
+    --font-heading: 'Comfortaa', cursive; /* Rounded, cute font */
+    --font-body: 'Quicksand', sans-serif;
+    --shadow: 0 5px 15px rgba(107, 79, 79, 0.15); /* Softer brown shadow */
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-body);
+    /* Subtle gradient from light cream to milk tea base */
+    background: linear-gradient(135deg, var(--bg-color), #EFE5DC);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Container --- */
+.container {
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Header --- */
+header h1 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    font-size: 2.8rem; /* Responsive font size */
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1); /* Subtle brown shadow */
+}
+
+/* --- Main Card --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 35px; /* More rounded corners like a cup */
+    padding: 35px 45px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(107, 79, 79, 0.1); /* Subtle border */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(107, 79, 79, 0.2);
+}
+
+/* --- Birthday Photo --- */
+.birthday-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular image */
+    border: 6px solid var(--bg-color); /* Border like milk foam */
+    outline: 2px solid var(--heading-color); /* Thin outer tea-colored line */
+    object-fit: cover; /* Prevents image distortion */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(107, 79, 79, 0.2);
+    /* Keeping pulse but maybe slow it down */
+    animation: pulse 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+/* --- Message Area --- */
+.message h2 {
+    color: var(--heading-color);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.message p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--text-color); /* Ensure text color is applied */
+}
+
+.message p:last-of-type {
+    margin-bottom: 25px; /* More space before signature */
+}
+
+.signature {
+    font-weight: bold;
+    /* font-style: italic; */ /* Optional: remove italic if preferred */
+    color: var(--heading-color);
+    font-family: var(--font-body); /* Using body font for signature */
+}
+
+/* --- Button --- */
+button {
+    background-color: var(--heading-color); /* Tea color */
+    color: var(--bg-color); /* Creamy text */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px; /* Very rounded pill shape */
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+    letter-spacing: 0.5px; /* Slight letter spacing */
+}
+
+button:hover {
+    background-color: #A0522D; /* Slightly lighter Sienna brown on hover */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+    background-color: #6B4F4F; /* Darker brown when clicked */
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: rgba(107, 79, 79, 0.7); /* Muted text color */
+}
+
+/* --- Media Queries for Responsiveness (Adjust slightly if needed) --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        padding: 30px 25px;
+        border-radius: 30px;
+    }
+
+    .message h2 {
+        font-size: 1.6rem;
+    }
+
+    .message p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+
+    .birthday-photo {
+        width: 120px;
+        height: 120px;
+        border-width: 5px;
+        outline-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.9rem;
+    }
+
+    .card {
+        width: 95%;
+        padding: 25px 15px;
+        border-radius: 25px;
+    }
+
+     .birthday-photo {
+        width: 100px;
+        height: 100px;
+        border-width: 4px;
+        outline-width: 1px;
+    }
+
+    .message h2 {
+        font-size: 1.5rem;
+    }
+
+    .message p {
+        font-size: 0.95rem;
+    }
+
+     button {
+        padding: 10px 20px;
+     }
+}
